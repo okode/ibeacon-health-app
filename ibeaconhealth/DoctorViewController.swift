@@ -39,30 +39,30 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     
     func centralManagerDidUpdateState(central: CBCentralManager!) {
         if (central.state != CBCentralManagerState.PoweredOn) {
-            return;
+            return
         }
         scan()
     }
     
     func scan() {
         centralManager!.scanForPeripheralsWithServices([CBUUID.UUIDWithString(Constants.TransferServiceUUID)], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
-        NSLog("Scanning started");
+        NSLog("Scanning started")
     }
 
     func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: NSDictionary!, RSSI: NSNumber!) {
         if (RSSI.integerValue > -15) {
-            return;
+            return
         }
         
         if (RSSI.integerValue < -35) {
-            return;
+            return
         }
         
-        NSLog("Discovered \(peripheral.name) at \(RSSI)");
+        NSLog("Discovered \(peripheral.name) at \(RSSI)")
         
         if (self.discoveredPeripheral != peripheral) {
-            self.discoveredPeripheral = peripheral;
-            NSLog("Connecting to peripheral \(peripheral)");
+            self.discoveredPeripheral = peripheral
+            NSLog("Connecting to peripheral \(peripheral)")
             centralManager!.connectPeripheral(peripheral, options: nil)
         }
     }
@@ -77,9 +77,9 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     }
     
     func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
-        NSLog("Peripheral Connected");
+        NSLog("Peripheral Connected")
         centralManager!.stopScan()
-        NSLog("Scanning stopped");
+        NSLog("Scanning stopped")
         data.length = 0
         peripheral.delegate = self
         peripheral.discoverServices([CBUUID.UUIDWithString(Constants.TransferServiceUUID)])
@@ -89,7 +89,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         if (error) {
             NSLog("Error discovering services: \(error.localizedDescription)")
             cleanup()
-            return;
+            return
         }
         
         for service in peripheral.services as CBService[] {
@@ -101,7 +101,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         if (error) {
             NSLog("Error discovering characteristics: \(error.localizedDescription)")
             cleanup()
-            return;
+            return
         }
         
         for characteristic in service.characteristics as CBCharacteristic[] {
@@ -114,7 +114,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
         if (error) {
             NSLog("Error discovering characteristics: \(error.localizedDescription)")
-            return;
+            return
         }
 
         let stringFromData = NSString(data: characteristic.value, encoding: NSUTF8StringEncoding)
@@ -128,8 +128,8 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
                 notification.fireDate =  NSDate(timeIntervalSinceNow: 0)
                 notification.alertBody = "Nuevos datos de paciente capturados"
                 notification.soundName = UILocalNotificationDefaultSoundName
-                notification.alertAction = "MAPFRE Salud"
-                notification.hasAction = true;
+                notification.alertAction = "iBeacon Health"
+                notification.hasAction = true
                 UIApplication.sharedApplication().scheduleLocalNotification(notification)
             }
 
@@ -140,7 +140,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         }
         
         data.appendData(characteristic.value)
-        NSLog("Received: \(stringFromData)");
+        NSLog("Received: \(stringFromData)")
     }
     
 }

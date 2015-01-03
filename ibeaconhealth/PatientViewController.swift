@@ -52,9 +52,9 @@ class PatientViewController: UIViewController, CBPeripheralManagerDelegate, UITe
     }
     
     func peripheralManager(peripheral: CBPeripheralManager!, central: CBCentral!, didSubscribeToCharacteristic characteristic: CBCharacteristic!) {
-        NSLog("Central subscribed to characteristic");
+        NSLog("Central subscribed to characteristic")
         dataToSend = txtOutput.text.dataUsingEncoding(NSUTF8StringEncoding)
-        sendDataIndex = 0;
+        sendDataIndex = 0
         sendData()
     }
     
@@ -68,14 +68,14 @@ class PatientViewController: UIViewController, CBPeripheralManagerDelegate, UITe
             
             let didSend = peripheralManager!.updateValue("EOM".dataUsingEncoding(NSUTF8StringEncoding), forCharacteristic: transferCharacteristic, onSubscribedCentrals: nil)
             if (didSend) {
-                sendingEOM = false;
-                NSLog("Sent: EOM");
+                sendingEOM = false
+                NSLog("Sent: EOM")
             }
-            return;
+            return
         }
         
         if (sendDataIndex >= dataToSend!.length) {
-            return;
+            return
         }
         
         var didSend = true
@@ -102,9 +102,9 @@ class PatientViewController: UIViewController, CBPeripheralManagerDelegate, UITe
                 let eomSent = peripheralManager!.updateValue("EOM".dataUsingEncoding(NSUTF8StringEncoding), forCharacteristic: transferCharacteristic, onSubscribedCentrals: nil)
                 if (eomSent) {
                     sendingEOM = true
-                    NSLog("Sent: EOM");
+                    NSLog("Sent: EOM")
                 }
-                return;
+                return
             }
         }
     }
