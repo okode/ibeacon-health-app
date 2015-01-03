@@ -1,4 +1,14 @@
-ibeacon-health-app
+iBeacon Health App
 ==================
 
-Simple Health App for iBeacon communication
+Simple iOS / Swift Health App for iBeacon communication.
+
+Requirements
+------------
+
+* Xcode 6.1.1
+
+Building
+--------
+
+Open the project `ibeaconhealth` from Xcode 6.1.1

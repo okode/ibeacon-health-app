@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E92A57F194D015D0018734E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E92A57E194D015D0018734E /* AudioToolbox.framework */; };
+		3EB2C59A194C6529007EF409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2C599194C6529007EF409 /* AppDelegate.swift */; };
+		3EB2C59C194C6529007EF409 /* PatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2C59B194C6529007EF409 /* PatientViewController.swift */; };
+		3EB2C59E194C6529007EF409 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2C59D194C6529007EF409 /* DoctorViewController.swift */; };
+		3EB2C5A1194C6529007EF409 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2C59F194C6529007EF409 /* Main.storyboard */; };
+		3EB2C5A3194C6529007EF409 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2C5A2194C6529007EF409 /* Images.xcassets */; };
+		3EB2C5AF194C6529007EF409 /* ibeaconhealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2C5AE194C6529007EF409 /* ibeaconhealthTests.swift */; };
+		3EB2C5C2194C745B007EF409 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB2C5C1194C745B007EF409 /* CoreBluetooth.framework */; };
+		3EB2C5C5194C80C4007EF409 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2C5C4194C80C4007EF409 /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3EB2C5A9194C6529007EF409 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EB2C58C194C6529007EF409 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EB2C593194C6529007EF409;
+			remoteInfo = ibeaconhealth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E92A57E194D015D0018734E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3EB2C594194C6529007EF409 /* ibeaconhealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ibeaconhealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB2C598194C6529007EF409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EB2C599194C6529007EF409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EB2C59B194C6529007EF409 /* PatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewController.swift; sourceTree = "<group>"; };
+		3EB2C59D194C6529007EF409 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
+		3EB2C5A0194C6529007EF409 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3EB2C5A2194C6529007EF409 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3EB2C5A8194C6529007EF409 /* ibeaconhealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ibeaconhealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB2C5AD194C6529007EF409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EB2C5AE194C6529007EF409 /* ibeaconhealthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ibeaconhealthTests.swift; sourceTree = "<group>"; };
+		3EB2C5C1194C745B007EF409 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		3EB2C5C4194C80C4007EF409 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3EB2C591194C6529007EF409 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E92A57F194D015D0018734E /* AudioToolbox.framework in Frameworks */,
+				3EB2C5C2194C745B007EF409 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EB2C5A5194C6529007EF409 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EB2C58B194C6529007EF409 = {
+			isa = PBXGroup;
+			children = (
+				3EB2C596194C6529007EF409 /* ibeaconhealth */,
+				3EB2C5AB194C6529007EF409 /* ibeaconhealthTests */,
+				3EB2C5C3194C7462007EF409 /* Frameworks */,
+				3EB2C595194C6529007EF409 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EB2C595194C6529007EF409 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2C594194C6529007EF409 /* ibeaconhealth.app */,
+				3EB2C5A8194C6529007EF409 /* ibeaconhealthTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EB2C596194C6529007EF409 /* ibeaconhealth */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2C5C4194C80C4007EF409 /* Constants.swift */,
+				3EB2C599194C6529007EF409 /* AppDelegate.swift */,
+				3EB2C59B194C6529007EF409 /* PatientViewController.swift */,
+				3EB2C59D194C6529007EF409 /* DoctorViewController.swift */,
+				3EB2C59F194C6529007EF409 /* Main.storyboard */,
+				3EB2C5A2194C6529007EF409 /* Images.xcassets */,
+				3EB2C597194C6529007EF409 /* Supporting Files */,
+			);
+			path = ibeaconhealth;
+			sourceTree = "<group>";
+		};
+		3EB2C597194C6529007EF409 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2C598194C6529007EF409 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EB2C5AB194C6529007EF409 /* ibeaconhealthTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2C5AE194C6529007EF409 /* ibeaconhealthTests.swift */,
+				3EB2C5AC194C6529007EF409 /* Supporting Files */,
+			);
+			path = ibeaconhealthTests;
+			sourceTree = "<group>";
+		};
+		3EB2C5AC194C6529007EF409 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2C5AD194C6529007EF409 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EB2C5C3194C7462007EF409 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E92A57E194D015D0018734E /* AudioToolbox.framework */,
+				3EB2C5C1194C745B007EF409 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3EB2C593194C6529007EF409 /* ibeaconhealth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EB2C5B2194C6529007EF409 /* Build configuration list for PBXNativeTarget "ibeaconhealth" */;
+			buildPhases = (
+				3EB2C590194C6529007EF409 /* Sources */,
+				3EB2C591194C6529007EF409 /* Frameworks */,
+				3EB2C592194C6529007EF409 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ibeaconhealth;
+			productName = ibeaconhealth;
+			productReference = 3EB2C594194C6529007EF409 /* ibeaconhealth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3EB2C5A7194C6529007EF409 /* ibeaconhealthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EB2C5B5194C6529007EF409 /* Build configuration list for PBXNativeTarget "ibeaconhealthTests" */;
+			buildPhases = (
+				3EB2C5A4194C6529007EF409 /* Sources */,
+				3EB2C5A5194C6529007EF409 /* Frameworks */,
+				3EB2C5A6194C6529007EF409 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EB2C5AA194C6529007EF409 /* PBXTargetDependency */,
+			);
+			name = ibeaconhealthTests;
+			productName = ibeaconhealthTests;
+			productReference = 3EB2C5A8194C6529007EF409 /* ibeaconhealthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3EB2C58C194C6529007EF409 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Okode;
+				TargetAttributes = {
+					3EB2C593194C6529007EF409 = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = ZQ4562D4C2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					3EB2C5A7194C6529007EF409 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 3EB2C593194C6529007EF409;
+					};
+				};
+			};
+			buildConfigurationList = 3EB2C58F194C6529007EF409 /* Build configuration list for PBXProject "ibeaconhealth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3EB2C58B194C6529007EF409;
+			productRefGroup = 3EB2C595194C6529007EF409 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3EB2C593194C6529007EF409 /* ibeaconhealth */,
+				3EB2C5A7194C6529007EF409 /* ibeaconhealthTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EB2C592194C6529007EF409 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB2C5A1194C6529007EF409 /* Main.storyboard in Resources */,
+				3EB2C5A3194C6529007EF409 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EB2C5A6194C6529007EF409 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EB2C590194C6529007EF409 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB2C59E194C6529007EF409 /* DoctorViewController.swift in Sources */,
+				3EB2C59A194C6529007EF409 /* AppDelegate.swift in Sources */,
+				3EB2C59C194C6529007EF409 /* PatientViewController.swift in Sources */,
+				3EB2C5C5194C80C4007EF409 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EB2C5A4194C6529007EF409 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB2C5AF194C6529007EF409 /* ibeaconhealthTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3EB2C5AA194C6529007EF409 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EB2C593194C6529007EF409 /* ibeaconhealth */;
+			targetProxy = 3EB2C5A9194C6529007EF409 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3EB2C59F194C6529007EF409 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EB2C5A0194C6529007EF409 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3EB2C5B0194C6529007EF409 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EB2C5B1194C6529007EF409 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3EB2C5B3194C6529007EF409 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ibeaconhealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3EB2C5B4194C6529007EF409 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ibeaconhealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3EB2C5B6194C6529007EF409 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ibeaconhealth.app/ibeaconhealth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ibeaconhealthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		3EB2C5B7194C6529007EF409 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ibeaconhealth.app/ibeaconhealth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ibeaconhealthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EB2C58F194C6529007EF409 /* Build configuration list for PBXProject "ibeaconhealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EB2C5B0194C6529007EF409 /* Debug */,
+				3EB2C5B1194C6529007EF409 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EB2C5B2194C6529007EF409 /* Build configuration list for PBXNativeTarget "ibeaconhealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EB2C5B3194C6529007EF409 /* Debug */,
+				3EB2C5B4194C6529007EF409 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EB2C5B5194C6529007EF409 /* Build configuration list for PBXNativeTarget "ibeaconhealthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EB2C5B6194C6529007EF409 /* Debug */,
+				3EB2C5B7194C6529007EF409 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3EB2C58C194C6529007EF409 /* Project object */;
+}
