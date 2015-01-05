@@ -11,4 +11,9 @@ Requirements
 Building
 --------
 
+    $ ./gradlew archive
+
+Developing
+----------
+
 Open the project `ibeaconhealth` from Xcode 6.1.1
