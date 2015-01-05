@@ -19,7 +19,7 @@ import CoreBluetooth
 
 class PatientViewController: UIViewController, CBPeripheralManagerDelegate, UITextViewDelegate {
     
-    @IBOutlet var txtOutput: UITextView
+    @IBOutlet var txtOutput: UITextView!
     
     var peripheralManager: CBPeripheralManager?
     var transferCharacteristic: CBMutableCharacteristic?
@@ -42,11 +42,11 @@ class PatientViewController: UIViewController, CBPeripheralManagerDelegate, UITe
         }
         NSLog("Powered ON")
         
-        transferCharacteristic = CBMutableCharacteristic(type: CBUUID.UUIDWithString(Constants.TransferCharacteristicUUID),
+        transferCharacteristic = CBMutableCharacteristic(type: CBUUID(string: Constants.TransferCharacteristicUUID),
             properties: CBCharacteristicProperties.Notify, value: nil, permissions: CBAttributePermissions.Readable)
         
-        let transferService = CBMutableService(type: CBUUID.UUIDWithString(Constants.TransferServiceUUID), primary: true)
-        transferService.characteristics = NSArray(object: transferCharacteristic)
+        let transferService = CBMutableService(type: CBUUID(string: Constants.TransferServiceUUID), primary: true)
+        transferService.characteristics = NSArray(object: transferCharacteristic!)
         peripheralManager!.addService(transferService)
 
     }
@@ -115,7 +115,7 @@ class PatientViewController: UIViewController, CBPeripheralManagerDelegate, UITe
     
     @IBAction func energyChanged(swEnergy: UISwitch) {
         if (swEnergy.on) {
-            peripheralManager!.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [CBUUID.UUIDWithString(Constants.TransferServiceUUID)]])
+            peripheralManager!.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [CBUUID(string: Constants.TransferServiceUUID)]])
         } else {
             peripheralManager!.stopAdvertising()
         }

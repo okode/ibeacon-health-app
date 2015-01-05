@@ -20,7 +20,7 @@ import AudioToolbox
 
 class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
                             
-    @IBOutlet var txtOutput : UITextView
+    @IBOutlet var txtOutput : UITextView!
     var centralManager: CBCentralManager?
     var discoveredPeripheral: CBPeripheral?
     var data: NSMutableData = NSMutableData()
@@ -45,7 +45,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     }
     
     func scan() {
-        centralManager!.scanForPeripheralsWithServices([CBUUID.UUIDWithString(Constants.TransferServiceUUID)], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
+        centralManager!.scanForPeripheralsWithServices([CBUUID(string: Constants.TransferServiceUUID)], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
         NSLog("Scanning started")
     }
 
@@ -82,37 +82,37 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         NSLog("Scanning stopped")
         data.length = 0
         peripheral.delegate = self
-        peripheral.discoverServices([CBUUID.UUIDWithString(Constants.TransferServiceUUID)])
+        peripheral.discoverServices([CBUUID(string: Constants.TransferServiceUUID)])
     }
     
     func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
-        if (error) {
+        if (error != nil) {
             NSLog("Error discovering services: \(error.localizedDescription)")
             cleanup()
             return
         }
         
-        for service in peripheral.services as CBService[] {
-            peripheral.discoverCharacteristics([CBUUID.UUIDWithString(Constants.TransferCharacteristicUUID)], forService: service)
+        for service in peripheral.services as [CBService] {
+            peripheral.discoverCharacteristics([CBUUID(string: Constants.TransferCharacteristicUUID)], forService: service)
         }
     }
     
     func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
-        if (error) {
+        if (error != nil) {
             NSLog("Error discovering characteristics: \(error.localizedDescription)")
             cleanup()
             return
         }
         
-        for characteristic in service.characteristics as CBCharacteristic[] {
-            if (characteristic.UUID == CBUUID.UUIDWithString(Constants.TransferCharacteristicUUID)) {
+        for characteristic in service.characteristics as [CBCharacteristic] {
+            if (characteristic.UUID == CBUUID(string: Constants.TransferCharacteristicUUID)) {
                 peripheral.setNotifyValue(true, forCharacteristic: characteristic)
             }
         }
     }
     
     func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
-        if (error) {
+        if (error != nil) {
             NSLog("Error discovering characteristics: \(error.localizedDescription)")
             return
         }
@@ -121,7 +121,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
 
         if (stringFromData == "EOM") {
             let newPatientData = NSString(data: data, encoding: NSUTF8StringEncoding)
-            if (lastPatientData != newPatientData) {
+            if (lastPatientData != newPatientData!) {
                 AudioServicesPlaySystemSound(1255)
                 
                 let notification = UILocalNotification()
@@ -134,7 +134,7 @@ class DoctorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             }
 
             txtOutput.text = newPatientData
-            lastPatientData = newPatientData
+            lastPatientData = newPatientData!
             peripheral.setNotifyValue(false, forCharacteristic: characteristic)
             centralManager!.cancelPeripheralConnection(peripheral)
         }
