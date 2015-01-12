@@ -11,7 +11,7 @@ Requirements
 Building
 --------
 
-    $ ./gradlew archive
+    $ ./gradlew release
 
 Developing
 ----------
