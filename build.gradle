@@ -31,19 +31,6 @@ task release(dependsOn: "archive") {
     description = "Performs a build for the device signed using the default certificate"
 }
 
-task appstore(dependsOn: "archive") {
-    description = "Performs a build for the device signed using the App Store certificate"
-}
-
-task beta(dependsOn: "archive") << {
-    commandLine "Pods/CrashlyticsFramework/Crashlytics.framework/submit",
-        CRASHLYTICS_API_KEY,
-        CRASHLYTICS_BUILD_SECRET,
-        "-ipaPath",
-        "build/sym/Release-iphoneos/" + PROJECT_NAME + ".ipa"
-}
-beta.description = "Performs a build for the device signed using using the default certificate and submit to Crashlytics Beta"
-
 gradle.taskGraph.whenReady { taskGraph ->
 
     if (taskGraph.hasTask(test)) {
@@ -70,8 +57,4 @@ gradle.taskGraph.whenReady { taskGraph ->
         }
     }
 
-    if (taskGraph.hasTask(appstore)) {
-        println "Configure build settings with App Store certificate"
-        println "TODO: Configure App Store certificate"
-    }
 }
