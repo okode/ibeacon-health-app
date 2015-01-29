@@ -1,19 +1,20 @@
 iBeacon Health App
 ==================
 
-Simple iOS / Swift Health App for iBeacon communication.
+Simple iOS Health App for iBeacon communication.
 
 Requirements
 ------------
 
 * Xcode 6.1.1
 
-Building
---------
+Swift version
+-------------
 
-    $ ./gradlew release
+Enter `swift` folder.
 
-Developing
-----------
+Objective-C version
+-------------------
 
-Open the project `ibeaconhealth` from Xcode 6.1.1
+Enter `objective-c` folder.
+
