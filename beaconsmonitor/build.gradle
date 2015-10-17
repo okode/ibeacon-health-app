@@ -3,11 +3,8 @@ plugins {
 }
 
 xcodebuild {
-    scheme        = PROJECT_NAME
-    target        = PROJECT_NAME
-    workspace     = PROJECT_NAME + ".xcworkspace"
     configuration = "Release"
-    //sdk           = "iphoneos"
+    simulator     = false
     
     signing {
         identity = SIGNING_IDENTITY
