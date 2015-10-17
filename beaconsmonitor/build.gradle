@@ -3,16 +3,16 @@ plugins {
 }
 
 xcodebuild {
-    //scheme        = PROJECT_NAME
-    //target        = PROJECT_NAME
-    //workspace     = PROJECT_NAME + ".xcworkspace"
-    //configuration = "Release"
+    scheme        = PROJECT_NAME
+    target        = PROJECT_NAME
+    workspace     = PROJECT_NAME + ".xcworkspace"
+    configuration = "Release"
     //sdk           = "iphoneos"
     
-    //signing {
-    //    identity = SIGNING_IDENTITY
-    //    keychain = "~/Library/Keychains/login.keychain"
-    //}
+    signing {
+        identity = SIGNING_IDENTITY
+        keychain = "~/Library/Keychains/login.keychain"
+    }
 
 }
 
