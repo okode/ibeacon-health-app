@@ -6,10 +6,16 @@
 //  Copyright © 2015 Okode. All rights reserved.
 //
 
+@import CoreLocation;
+@import CoreBluetooth;
+
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate,
+UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
+@property (nonatomic, weak) IBOutlet UITableView *beaconTableView;
 
 @end
+
 
