@@ -25,7 +25,7 @@ crashlytics {
     submitCommand = "Pods/Crashlytics/Crashlytics.framework/submit"
 }
 
-task release(dependsOn: "package") {
+task release(dependsOn: "xcodebuild") {
     description = "Package"
 }
 
