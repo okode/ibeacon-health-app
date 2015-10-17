@@ -3,6 +3,8 @@ plugins {
 }
 
 xcodebuild {
+    target        = PROJECT_NAME
+    scheme        = PROJECT_NAME
     configuration = "Release"
     simulator     = false
     
