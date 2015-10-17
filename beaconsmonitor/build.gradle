@@ -1,0 +1,39 @@
+plugins {
+    id "org.openbakery.xcode-plugin" version "0.12.0"
+}
+
+xcodebuild {
+    //scheme        = PROJECT_NAME
+    //target        = PROJECT_NAME
+    //workspace     = PROJECT_NAME + ".xcworkspace"
+    //configuration = "Release"
+    //sdk           = "iphoneos"
+    
+    //signing {
+    //    identity = SIGNING_IDENTITY
+    //    keychain = "~/Library/Keychains/login.keychain"
+    //}
+
+}
+
+infoplist {
+    version = BUILD_NUMBER
+}
+
+crashlytics {
+    apiKey        = CRASHLYTICS_API_KEY
+    buildSecret   = CRASHLYTICS_BUILD_SECRET
+    submitCommand = "Pods/Crashlytics/Crashlytics.framework/submit"
+}
+
+task release(dependsOn: "package") {
+    description = "Package"
+}
+
+tasks.crashlytics.dependsOn tasks.release
+
+task beta(dependsOn: "crashlytics") {
+    description = "Package and submit to Crashlytics Beta"
+}
+
+
