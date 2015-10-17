@@ -5,3 +5,6 @@ build
 .gradle
 Podfile.lock
 Pods
+
+# OSX
+.DS_Store
