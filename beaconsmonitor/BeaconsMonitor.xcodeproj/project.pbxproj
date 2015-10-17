@@ -124,6 +124,7 @@
 				3E3B808D1BD279AB00389B5D /* Resources */,
 				3E3B80A91BD2834400389B5D /* ShellScript */,
 				1C55A485C534F6D1B77F8A68 /* Copy Pods Resources */,
+				7751D78B4692AAA1661FE78F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +213,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "Pods/Crashlytics/Crashlytics.framework/run 51a920f68611292bc387b86e9ffa20553d095372 a478cf2f9789dc95ed951966d28d92012feeb728077d40a34d2533cfade75663";
+		};
+		7751D78B4692AAA1661FE78F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		CFC0B5C49EFA1A3ACE0CE644 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
