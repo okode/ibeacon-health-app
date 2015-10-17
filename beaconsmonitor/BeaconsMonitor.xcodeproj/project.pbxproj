@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		299B4D5EA5BD08AF1214D947 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DD0FD4886C50D36389A342 /* libPods.a */; };
+		3E2E84DF1BD289510014DC97 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E84DE1BD289500014DC97 /* CoreLocation.framework */; };
+		3E2E84E11BD289560014DC97 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E84E01BD289560014DC97 /* CoreBluetooth.framework */; };
 		3E3B80941BD279AB00389B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B80931BD279AB00389B5D /* main.m */; };
 		3E3B80971BD279AB00389B5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B80961BD279AB00389B5D /* AppDelegate.m */; };
 		3E3B809A1BD279AB00389B5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B80991BD279AB00389B5D /* ViewController.m */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		05DD0FD4886C50D36389A342 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E2E84DE1BD289500014DC97 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3E2E84E01BD289560014DC97 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		3E3B808F1BD279AB00389B5D /* BeaconsMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconsMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3B80931BD279AB00389B5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E3B80951BD279AB00389B5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2E84E11BD289560014DC97 /* CoreBluetooth.framework in Frameworks */,
+				3E2E84DF1BD289510014DC97 /* CoreLocation.framework in Frameworks */,
 				299B4D5EA5BD08AF1214D947 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +104,8 @@
 		FED1A5575BDBBB900740B638 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E2E84E01BD289560014DC97 /* CoreBluetooth.framework */,
+				3E2E84DE1BD289500014DC97 /* CoreLocation.framework */,
 				05DD0FD4886C50D36389A342 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -137,6 +145,11 @@
 				TargetAttributes = {
 					3E3B808E1BD279AB00389B5D = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
