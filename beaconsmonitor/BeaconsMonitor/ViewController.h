@@ -15,6 +15,7 @@
 UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *beaconTableView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *appNavigationItem;
 
 @end
 

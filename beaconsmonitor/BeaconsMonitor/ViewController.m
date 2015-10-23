@@ -10,6 +10,8 @@
 
 #import "ViewController.h"
 
+static NSString * const kMainTitle                   = @"Beacons Monitor";
+
 static NSString * const kUUID                        = @"00000000-0000-0000-0000-000000000000";
 static NSString * const kIdentifier                  = @"SomeIdentifier";
 
@@ -208,8 +210,8 @@ typedef NS_ENUM(NSUInteger, NTOperationsRow) {
             break;
     }
     
-    NSString *format = @"%@, %@ • %@ • %f • %li";
-    return [NSString stringWithFormat:format, beacon.major, beacon.minor, proximity, beacon.accuracy, beacon.rssi];
+    NSString *format = @"%@ • %f m • %li dB • %@/%@";
+    return [NSString stringWithFormat:format, proximity, beacon.accuracy, beacon.rssi, beacon.major, beacon.minor];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -537,12 +539,14 @@ typedef NS_ENUM(NSUInteger, NTOperationsRow) {
 {
     NSLog(@"Entered region: %@", region);
     
-    [self sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region];
+    [self sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region withMessage:@"Entered beacon region"];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
     NSLog(@"Exited region: %@", region);
+    
+    [self sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region withMessage:@"Exited beacon region"];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
@@ -550,25 +554,27 @@ typedef NS_ENUM(NSUInteger, NTOperationsRow) {
     NSString *stateString = nil;
     switch (state) {
         case CLRegionStateInside:
-            stateString = @"inside";
+            stateString = @"Inside";
             break;
         case CLRegionStateOutside:
-            stateString = @"outside";
+            stateString = @"Outside";
             break;
         case CLRegionStateUnknown:
-            stateString = @"unknown";
+            stateString = @"Unknown";
             break;
     }
     NSLog(@"State changed to %@ for region %@.", stateString, region);
+    
+    self.appNavigationItem.title = [NSString stringWithFormat:@"%@ [Region %@]", kMainTitle, stateString];
 }
 
-- (void)sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region
+- (void)sendLocalNotificationForBeaconRegion:(CLBeaconRegion *)region withMessage:(NSString*)message
 {
     UILocalNotification *notification = [UILocalNotification new];
     
     // Notification details
-    notification.alertBody = [NSString stringWithFormat:@"Entered beacon region for UUID: %@",
-                              region.proximityUUID.UUIDString];   // Major and minor are not available at the monitoring stage
+    notification.alertBody = [NSString stringWithFormat:@"%@. UUID: %@",
+                              message, region.proximityUUID.UUIDString];   // Major and minor are not available at the monitoring stage
     notification.alertAction = NSLocalizedString(@"View Details", nil);
     notification.soundName = UILocalNotificationDefaultSoundName;
     

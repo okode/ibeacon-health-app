@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "AudioToolbox/AudioServices.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -17,7 +19,8 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     [Fabric with:@[[Crashlytics class]]];
 
     UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
@@ -25,6 +28,20 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = notification.alertBody;
+    hud.margin = 10.f;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    [hud hide:YES afterDelay:3];
+    
+    AudioServicesPlaySystemSound(1007);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application { }
@@ -36,5 +53,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application { }
 
 - (void)applicationWillTerminate:(UIApplication *)application { }
+
+
 
 @end
