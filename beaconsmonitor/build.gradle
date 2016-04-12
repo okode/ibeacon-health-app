@@ -1,38 +1,49 @@
 plugins {
-    id "org.openbakery.xcode-plugin" version "0.12.0"
+    id 'org.openbakery.xcode-plugin' version '0.13.0'
 }
 
 xcodebuild {
-    target        = PROJECT_NAME
-    scheme        = PROJECT_NAME
-    configuration = "Release"
-    simulator     = false
-    
-    signing {
-        identity = SIGNING_IDENTITY
-        keychain = "~/Library/Keychains/login.keychain"
-    }
-
+    version     = XCODE_VERSION
+    scheme      = TARGET_NAME
+    target      = TARGET_NAME
+    destination = 'iPhone 6'
 }
 
 infoplist {
     version = BUILD_NUMBER
 }
 
+oclint {
+    excludes = [ 'Pods' ]
+}
+
 crashlytics {
     apiKey        = CRASHLYTICS_API_KEY
     buildSecret   = CRASHLYTICS_BUILD_SECRET
-    submitCommand = "Pods/Crashlytics/Crashlytics.framework/submit"
+    emails        = Eval.me(CRASHLYTICS_EMAILS)
+    submitCommand = 'Pods/Crashlytics/submit'
 }
 
-task release(dependsOn: "xcodebuild") {
-    description = "Package"
+task debug(dependsOn: ['xcodebuild']) {
+    description = 'Builds the app for simulator'
 }
 
-tasks.crashlytics.dependsOn tasks.release
-
-task beta(dependsOn: "crashlytics") {
-    description = "Package and submit to Crashlytics Beta"
+task release(dependsOn: ['archive', 'package']) {
+    description = 'Builds the app for device'
+    xcodebuild {
+        simulator     = false
+        configuration = 'Release'
+    }
 }
 
+task beta(dependsOn: ['archive', 'package', 'crashlytics']) {
+    description = 'Builds the app for app for device and uploads to Crashlytics Beta'
+    xcodebuild {
+        simulator     = false
+        configuration = 'Release'
+    }
+}
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.12'
+}
