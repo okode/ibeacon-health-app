@@ -212,7 +212,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/Fabric/run 51a920f68611292bc387b86e9ffa20553d095372 a478cf2f9789dc95ed951966d28d92012feeb728077d40a34d2533cfade75663";
+			shellScript = "${PODS_ROOT}/Fabric/run 51a920f68611292bc387b86e9ffa20553d095372 ${OKODE_CRASHLYTICS_BUILD_SECRET}";
 		};
 		7751D78B4692AAA1661FE78F /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -19,7 +19,7 @@ oclint {
 
 crashlytics {
     apiKey        = CRASHLYTICS_API_KEY
-    buildSecret   = CRASHLYTICS_BUILD_SECRET
+    buildSecret   = System.getenv('OKODE_CRASHLYTICS_BUILD_SECRET')
     emails        = Eval.me(CRASHLYTICS_EMAILS)
     submitCommand = 'Pods/Crashlytics/submit'
 }
