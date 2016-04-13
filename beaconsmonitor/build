@@ -1,0 +1,145 @@
+#!/bin/bash
+
+set -e
+
+export PATH=/usr/local/bin:$PATH
+
+BASEDIR=$(dirname $0)
+CWD=$(pwd)
+
+MODE=
+PROJECT_NAME=
+BUILD_NUMBER=
+CRASHLYTICS_API_KEY=
+CRASHLYTICS_BUILD_SECRET=
+CRASHLYTICS_EMAILS=
+
+usage()
+{
+    echo "
+Usage: $0 [OPTIONS]
+
+A building utility for Xcode iOS projects.
+
+Options:
+
+  -h  Show this message
+  -m  Mode [release | beta]
+  -p  Project name
+  -b  Build number (optional)
+  -k  Crashlytics API Key
+  -s  Crashlytics Build Secret
+  -e  Crashlytics emails
+"
+}
+
+ipa()
+{
+    rm -rf output
+    if [ $BUILD_NUMBER ]; then
+        agvtool new-version -all ${BUILD_NUMBER}
+    fi
+    /usr/local/bin/pod install
+    set -o pipefail && xcrun xcodebuild clean -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -configuration Release | xcpretty
+    set -o pipefail && xcrun xcodebuild archive -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -configuration Release -archivePath output/${PROJECT_NAME}.xcarchive | xcpretty
+    set -o pipefail && xcrun xcodebuild -exportArchive -exportOptionsPlist exportPlist.plist -archivePath output/${PROJECT_NAME}.xcarchive -exportPath output | xcpretty
+}
+
+release()
+{
+    ipa
+}
+
+beta()
+{
+    ipa
+    Pods/Crashlytics/submit ${CRASHLYTICS_API_KEY} ${CRASHLYTICS_BUILD_SECRET} -ipaPath output/${PROJECT_NAME}.ipa -emails ${CRASHLYTICS_EMAILS}
+}
+
+end()
+{
+    cd $CWD
+    exit
+}
+
+cd $BASEDIR
+
+if [ "$#" -lt 1 ]; then
+    usage
+    end
+fi
+
+while getopts "hm:p:k:s:e:b:" OPTION; do
+    case $OPTION in
+        h)
+            usage
+            end
+            ;;
+        m)
+            case $OPTARG in
+                release|debug|beta)
+                    MODE=$OPTARG
+                    ;;
+                *)
+                    echo "Invalid mode $OPTARG"
+                    end
+            esac
+            ;;
+        p)
+            PROJECT_NAME=$OPTARG
+            ;;
+        b)
+            BUILD_NUMBER=$OPTARG
+            ;;
+        k)
+            CRASHLYTICS_API_KEY=$OPTARG
+            ;;
+        s)
+            CRASHLYTICS_BUILD_SECRET=$OPTARG
+            ;;
+        e)
+            CRASHLYTICS_EMAILS=$OPTARG
+            ;;
+        ?)
+            usage
+            end
+            ;;
+    esac
+done
+
+if [ -z $MODE ]; then
+    echo "Missing mode"
+    end
+fi
+
+if [ -z $PROJECT_NAME ]; then
+    echo "Missing project name"
+    end
+fi
+
+if [ $MODE = 'beta' ]; then
+    if [ -z $CRASHLYTICS_API_KEY ]; then
+        echo "Missing Crashlytics API key"
+        end
+    fi
+    if [ -z $CRASHLYTICS_BUILD_SECRET ]; then
+        echo "Missing Crashlytics build secret"
+        end
+    fi
+    if [ -z $CRASHLYTICS_EMAILS ]; then
+        echo "Missing Crashlytics emails"
+        end
+    fi
+fi
+
+case $MODE in
+    release)
+        release
+        ;;
+    debug)
+        debug
+        ;;
+    beta)
+        beta
+        ;;
+esac

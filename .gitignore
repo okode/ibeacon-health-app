@@ -1,10 +1,9 @@
 # Xcode
 *.xcworkspace
 xcuserdata
-build
-.gradle
 Podfile.lock
 Pods
+output
 
 # OSX
 .DS_Store
