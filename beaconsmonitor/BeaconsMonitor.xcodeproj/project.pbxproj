@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		299B4D5EA5BD08AF1214D947 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DD0FD4886C50D36389A342 /* libPods.a */; };
 		3E2E84DF1BD289510014DC97 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E84DE1BD289500014DC97 /* CoreLocation.framework */; };
 		3E2E84E11BD289560014DC97 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E84E01BD289560014DC97 /* CoreBluetooth.framework */; };
 		3E3B80941BD279AB00389B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B80931BD279AB00389B5D /* main.m */; };
@@ -16,6 +15,7 @@
 		3E3B809D1BD279AB00389B5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3B809B1BD279AB00389B5D /* Main.storyboard */; };
 		3E3B809F1BD279AB00389B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3B809E1BD279AB00389B5D /* Assets.xcassets */; };
 		3E3B80A21BD279AB00389B5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3B80A01BD279AB00389B5D /* LaunchScreen.storyboard */; };
+		65E59AA107F5E92CE6FC4E75 /* libPods-BeaconsMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDD3B67B2B6785D635EFE9F /* libPods-BeaconsMonitor.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +33,9 @@
 		3E3B80A11BD279AB00389B5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E3B80A31BD279AB00389B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87DD66A3234A30D70B17547B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8CDD3B67B2B6785D635EFE9F /* libPods-BeaconsMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeaconsMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E5D1873A866F5570E9C365 /* Pods-BeaconsMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconsMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconsMonitor/Pods-BeaconsMonitor.release.xcconfig"; sourceTree = "<group>"; };
+		CDB68DE3052A383E2422AAEC /* Pods-BeaconsMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconsMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconsMonitor/Pods-BeaconsMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A50DECE79A4F0975911F0C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +46,7 @@
 			files = (
 				3E2E84E11BD289560014DC97 /* CoreBluetooth.framework in Frameworks */,
 				3E2E84DF1BD289510014DC97 /* CoreLocation.framework in Frameworks */,
-				299B4D5EA5BD08AF1214D947 /* libPods.a in Frameworks */,
+				65E59AA107F5E92CE6FC4E75 /* libPods-BeaconsMonitor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +100,8 @@
 			children = (
 				87DD66A3234A30D70B17547B /* Pods.debug.xcconfig */,
 				D5A50DECE79A4F0975911F0C /* Pods.release.xcconfig */,
+				CDB68DE3052A383E2422AAEC /* Pods-BeaconsMonitor.debug.xcconfig */,
+				95E5D1873A866F5570E9C365 /* Pods-BeaconsMonitor.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 				3E2E84E01BD289560014DC97 /* CoreBluetooth.framework */,
 				3E2E84DE1BD289500014DC97 /* CoreLocation.framework */,
 				05DD0FD4886C50D36389A342 /* libPods.a */,
+				8CDD3B67B2B6785D635EFE9F /* libPods-BeaconsMonitor.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,13 +124,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E3B80A61BD279AB00389B5D /* Build configuration list for PBXNativeTarget "BeaconsMonitor" */;
 			buildPhases = (
-				CFC0B5C49EFA1A3ACE0CE644 /* Check Pods Manifest.lock */,
+				CFC0B5C49EFA1A3ACE0CE644 /* 📦 Check Pods Manifest.lock */,
 				3E3B808B1BD279AB00389B5D /* Sources */,
 				3E3B808C1BD279AB00389B5D /* Frameworks */,
 				3E3B808D1BD279AB00389B5D /* Resources */,
 				3E3B80A91BD2834400389B5D /* ShellScript */,
-				1C55A485C534F6D1B77F8A68 /* Copy Pods Resources */,
-				7751D78B4692AAA1661FE78F /* Embed Pods Frameworks */,
+				1C55A485C534F6D1B77F8A68 /* 📦 Copy Pods Resources */,
+				7751D78B4692AAA1661FE78F /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,19 +192,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C55A485C534F6D1B77F8A68 /* Copy Pods Resources */ = {
+		1C55A485C534F6D1B77F8A68 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaconsMonitor/Pods-BeaconsMonitor-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3E3B80A91BD2834400389B5D /* ShellScript */ = {
@@ -214,29 +220,29 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 51a920f68611292bc387b86e9ffa20553d095372 ${OKODE_CRASHLYTICS_BUILD_SECRET}";
 		};
-		7751D78B4692AAA1661FE78F /* Embed Pods Frameworks */ = {
+		7751D78B4692AAA1661FE78F /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaconsMonitor/Pods-BeaconsMonitor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CFC0B5C49EFA1A3ACE0CE644 /* Check Pods Manifest.lock */ = {
+		CFC0B5C49EFA1A3ACE0CE644 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +368,7 @@
 		};
 		3E3B80A71BD279AB00389B5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87DD66A3234A30D70B17547B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CDB68DE3052A383E2422AAEC /* Pods-BeaconsMonitor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -378,7 +384,7 @@
 		};
 		3E3B80A81BD279AB00389B5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5A50DECE79A4F0975911F0C /* Pods.release.xcconfig */;
+			baseConfigurationReference = 95E5D1873A866F5570E9C365 /* Pods-BeaconsMonitor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
